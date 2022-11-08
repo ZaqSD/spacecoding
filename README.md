@@ -9,8 +9,8 @@
 ## How to start application
 ### Frontend
 Execute inside /fontend:
-'''
+```
 npm start
-'''
+```
 Per default erreichbar unter localhost:3000
 
