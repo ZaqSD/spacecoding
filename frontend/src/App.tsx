@@ -7,7 +7,7 @@ import {
   Routes
 } from "react-router-dom";
 
-import Home from './views/home';
+import Home from './views/Home';
 import React from "react";
 
 function App() {
