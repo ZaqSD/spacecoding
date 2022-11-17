@@ -4,6 +4,30 @@ ul {
     padding: 0;
   }
 
+.messageWindow {
+    border-left: 1px solid #BDBDBD;
+}
+
+.messageWindow input {
+    background-color: #E5E5E5;
+    border-radius: 5px;
+    border-width: 0px;
+    min-height: 20px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.messageWindow input:hover {
+    /*box-sizing: border-box;*/
+    transition: border-width 200ms ease-out;
+    transition: margin 200ms ease-out;
+    background-color: #E5E5E5;
+    border-width: 2px;
+    border-color: #B7B7B7;
+    border-style: solid;
+    margin: 8px;
+}
+
 .navbar {
     padding: 20px;
     background-color: white;

@@ -13,7 +13,7 @@ export default function Home() {
         <Row>
           <Col lg={9}>Test</Col>
           <Col lg={3}>
-  
+            <MessageWindow />
           </Col>
         </Row>
       </Container>
