@@ -3,6 +3,7 @@ import "./App.css";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import Home from './views/Home';
+import Forum from "./views/Forum";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
 import React from "react";
@@ -15,6 +16,7 @@ function App() {
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/forum" element={<Forum />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>
