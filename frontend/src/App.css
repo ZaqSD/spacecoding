@@ -30,3 +30,20 @@ ul {
 .navbar-right {
     float: right;
 }
+
+.profile-edit-input {
+    height: 30px;
+    min-width: 500px;
+    border-radius: 5px;
+    border-color: #E5E5E5;
+    border-width: 2px;
+    background-color: #F6F6F6;
+    border-style: solid;
+    padding-left: 10px;
+    margin: 10px;
+}
+
+.profile-edit-input:hover {
+    transition: border-color 200ms ease-out;
+    border-color: #B7B7B7;
+}
