@@ -2,7 +2,7 @@ import "./App.css";
 
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-import Home from './views/Home';
+import Challanges from "./views/Challanges";
 import Forum from "./views/Forum";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
@@ -17,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/forum" element={<Forum />} />
+            <Route path="/challanges" element={<Challanges />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>
