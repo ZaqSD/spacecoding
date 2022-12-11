@@ -33,6 +33,7 @@ export default function ForumPost(props: ForumPostProps) {
       </Row>
       <Row>
         <button
+          id="postLikeBtn"
           className={"forumPostAction" + (liked ? " liked" : " ")}
           onClick={handleLike}
         >

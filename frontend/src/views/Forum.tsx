@@ -7,6 +7,30 @@ import MessageWindow from "../components/MessageWindow";
 import NavBar from "../components/NavBar";
 
 export default function Home() {
+  const posts = [
+    {
+      title: "My newest Post",
+      content: "This is the newest post in a line of many posts.",
+      isLiked: true,
+      likeNr: 12,
+      commentNr: 2,
+    },
+    {
+      title: "Hello World",
+      content: "This is another post.",
+      isLiked: true,
+      likeNr: 879,
+      commentNr: 0,
+    },
+    {
+      title: "TestPost",
+      content: "This is a post to test new functionalities.",
+      isLiked: false,
+      likeNr: 8,
+      commentNr: 0,
+    },
+  ];
+
   return (
     <>
       <NavBar />
@@ -25,33 +49,17 @@ export default function Home() {
               <div></div>
             </Col>
             <Col>
-              <Row>
-                <ForumPost
-                  title="My newest Post"
-                  content="This is the newest post in a line of many posts."
-                  isLiked={true}
-                  likeNr={12}
-                  commentNr={2}
-                />
-              </Row>
-              <Row>
-                <ForumPost
-                  title="Hello World"
-                  content="This is another post."
-                  isLiked={true}
-                  likeNr={879}
-                  commentNr={0}
-                />
-              </Row>
-              <Row>
-                <ForumPost
-                  title="TestPost"
-                  content="This is a post to test new functionalities."
-                  isLiked={false}
-                  likeNr={7}
-                  commentNr={0}
-                />
-              </Row>
+              {posts.map(({ title, content, isLiked, likeNr, commentNr }) => (
+                <Row>
+                  <ForumPost
+                    title={title}
+                    content={content}
+                    isLiked={isLiked}
+                    likeNr={likeNr}
+                    commentNr={commentNr}
+                  />
+                </Row>
+              ))}
             </Col>
           </Col>
           <Col lg={3}>
