@@ -2,11 +2,19 @@ import * as React from "react";
 
 import { Col, Container, Row } from "react-grid-system";
 
+import CreatePostDialog from "../components/CreatePostDialog";
 import ForumPost from "../components/ForumPost";
 import MessageWindow from "../components/MessageWindow";
 import NavBar from "../components/NavBar";
 
-export default function Home() {
+export default function Forum() {
+  const [createPostOpen, setCreatePostOpen] = React.useState(false);
+
+  const handleCreatePost = () => {
+    setCreatePostOpen(!createPostOpen);
+  };
+
+  //TODO Field Uploaddate & time, Uploaded by
   const posts = [
     {
       title: "My newest Post",
@@ -42,7 +50,16 @@ export default function Home() {
                 <h1>Forum</h1>
               </Col>
               <Col lg={2}>
-                <button className="button buttonUpload">Create Post</button>
+                <button
+                  className="button buttonUpload"
+                  onClick={handleCreatePost}
+                >
+                  Create Post
+                </button>
+                <CreatePostDialog
+                  open={createPostOpen}
+                  handleDialog={handleCreatePost}
+                />
               </Col>
             </Row>
             <Col lg={2}>
