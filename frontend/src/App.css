@@ -4,6 +4,76 @@ ul {
     padding: 0;
   }
 
+.buttonUpload {
+    background-color: rgb(0, 180, 90);
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    border-radius: 5px;
+    border-width: 0px;
+    padding-top: 8px;
+    padding-right: 12px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    margin-top: 20px;
+}
+
+.buttonUpload:hover {
+    transition: background-color 125ms ease-in;
+    background-color: rgb(0, 150, 70);
+}
+
+.forumPost {
+    padding: 10px;
+    margin: 10px;
+}
+
+.forumPostAction {
+    transition: background-color 300ms ease-out;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+    color: black;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding-top: 6px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+.forumPostAction:hover{
+    transition: background-color 300ms ease-out;
+    background-color: #E5E5E5;
+    border-radius: 5px;
+}
+
+.forumPostAction#postLikeBtn:hover{
+    transition: background-color 300ms ease-out;
+    background-color: #DDDDFF;
+    border-radius: 5px;
+}
+
+.forumPostAction.liked{
+    color: blue;
+    border-color: blue;
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+.forumPostContent {
+    font-size: 16px;
+}
+
+.forumPostTitle {
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0px;
+}
+
 .messageWindow {
     border-left: 1px solid #BDBDBD;
 }
@@ -31,10 +101,13 @@ ul {
 .navbar {
     padding: 20px;
     background-color: white;
+    overflow: hidden;
     filter: drop-shadow(0px 10px 10px #E5E5E5);
 }
 
 .navbar a{
+    transition: background-color 300ms ease-out;
+    background-color: white;
     color: black;
     font-size: 16px;
     font-weight: 500;
