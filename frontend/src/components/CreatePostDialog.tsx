@@ -4,16 +4,20 @@ import { Col, Container, Row } from "react-grid-system";
 
 import { Button } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
+import { Padding } from "@mui/icons-material";
 
 export interface CreatePostDialogProps {
   open: boolean;
   handleDialog: React.MouseEventHandler<HTMLAnchorElement>;
+  create: () => void;
 }
 
 export default function SimpleDialog(props: CreatePostDialogProps) {
   const handleListItemClick = (value: string) => {};
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    props.create();
+  };
 
   return (
     <Dialog open={props.open}>
