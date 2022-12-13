@@ -2,7 +2,11 @@ import "../App.css";
 
 export default function CountryDropdown() {
   return (
-    <select name="country" className="profile-edit-input" id="country">
+    <select
+      name="country"
+      className="textfield profile-edit-input"
+      id="country"
+    >
       <option value="0" label="Select a country ... " selected>
         Select a country ...{" "}
       </option>
