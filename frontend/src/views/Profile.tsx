@@ -4,6 +4,7 @@ import { Col, Container, Row } from "react-grid-system";
 
 import CountryDropdown from "../components/CountryDropdown";
 import NavBar from "../components/NavBar";
+import TimezoneDropdown from "../components/TimezoneDropdown";
 
 const username = "testuser";
 const pers_name = "test user";
@@ -30,28 +31,28 @@ export default function Profile() {
             </Row>
             <Row>
               <input
-                className="textfield"
+                className="textfield profile-edit-input"
                 placeholder="Username"
                 value={username != null ? username : ""}
               ></input>
             </Row>
             <Row>
               <input
-                className="textfield"
+                className="textfield profile-edit-input"
                 placeholder="Full name"
                 value={pers_name != null ? pers_name : ""}
               ></input>
             </Row>
             <Row>
               <input
-                className="textfield"
+                className="textfield profile-edit-input"
                 placeholder="E-Mail"
                 value={pers_email != null ? pers_email : ""}
               ></input>
             </Row>
             <Row>
               <input
-                className="textfield"
+                className="textfield profile-edit-input"
                 placeholder="Phonenumber"
                 value={pers_phonenumber != null ? pers_phonenumber : ""}
               ></input>
@@ -61,14 +62,14 @@ export default function Profile() {
             </Row>
             <Row>
               <input
-                className="textfield"
+                className="textfield profile-edit-input"
                 placeholder="Position"
                 value={biz_position != null ? biz_position : ""}
               ></input>
             </Row>
             <Row>
               <input
-                className="textfield"
+                className="textfield profile-edit-input"
                 placeholder="Company"
                 value={biz_company != null ? biz_company : ""}
               ></input>
@@ -78,7 +79,7 @@ export default function Profile() {
             </Row>
             <Row>
               <input
-                className="textfield"
+                className="textfield profile-edit-input"
                 placeholder="City"
                 value={loc_city != null ? loc_city : ""}
               ></input>
@@ -87,7 +88,7 @@ export default function Profile() {
               <CountryDropdown />
             </Row>
             <Row>
-              <input className="textfield" placeholder="Timezone"></input>
+              <TimezoneDropdown />
             </Row>
           </Col>
         </Row>
