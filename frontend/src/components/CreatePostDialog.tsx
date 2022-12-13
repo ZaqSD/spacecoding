@@ -2,40 +2,48 @@ import * as React from "react";
 
 import { Col, Container, Row } from "react-grid-system";
 
-import { Button } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 
 export interface CreatePostDialogProps {
   open: boolean;
-  handleDialog: React.MouseEventHandler<HTMLAnchorElement>;
+  handleDialog: React.MouseEventHandler<HTMLButtonElement>;
+  create: () => void;
 }
 
 export default function SimpleDialog(props: CreatePostDialogProps) {
   const handleListItemClick = (value: string) => {};
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    props.create();
+  };
 
   return (
     <Dialog open={props.open}>
-      <Row>
-        <h1>Create new Post</h1>
-        <Col>
+      <div id="forum-createDialog">
+        <Container>
           <Row>
-            <input className="profile-edit-input" placeholder="Title"></input>
+            <h1>Create new Post</h1>
           </Row>
           <Row>
-            <input className="profile-edit-input" placeholder="Content"></input>
+            <input className="textfield" placeholder="Title"></input>
           </Row>
           <Row>
-            <a className="button buttonUpload" onClick={handleSubmit}>
+            <input className="textfield" placeholder="Content"></input>
+          </Row>
+          <Row>
+            <button className="button" id="btn-post" onClick={handleSubmit}>
               Post
-            </a>
-            <a className="button buttonUpload" onClick={props.handleDialog}>
+            </button>
+            <button
+              className="button"
+              id="btn-cancel"
+              onClick={props.handleDialog}
+            >
               Cancel
-            </a>
+            </button>
           </Row>
-        </Col>
-      </Row>
+        </Container>
+      </div>
     </Dialog>
   );
 }
