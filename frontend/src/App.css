@@ -318,3 +318,20 @@ ul {
 #login-field #btn-register:hover {
     background-color: #E5E5E5;
 }
+
+#profile-activity-selector {
+    width: 30%;
+    margin-top: 20px;
+}
+
+#profile-activity-selector-posts {
+    width: 50%;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#profile-activity-selector-challanges {
+    width: 50%;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
