@@ -2,94 +2,138 @@ import * as React from "react";
 
 import { Col, Container, Row } from "react-grid-system";
 
-import CountryDropdown from "../components/CountryDropdown";
+import MessageWindow from "../components/MessageWindow";
 import NavBar from "../components/NavBar";
 import TimezoneDropdown from "../components/TimezoneDropdown";
 
-const username = "testuser";
-const pers_name = "test user";
-const pers_email = "email";
-const pers_phonenumber = "(123) 456 7890";
-const biz_position = "Software Engineer";
-const biz_company = "Google";
-const loc_city = "Zurich";
-const loc_country = "CH";
-const loc_timezone = "+1";
+export default function Home() {
+  const [isActivityPosts, setIsActivityPosts] = React.useState(true);
 
-export default function Profile() {
-  const fetchData = () => {};
+  const profileInformation = {
+    username: "testuser",
+    pers_name: "test user",
+    pers_email: "email",
+    pers_phonenumber: "(123) 456 7890",
+    biz_position: "Software Engineer",
+    biz_company: "Google",
+    loc_city: "Zurich",
+    loc_country: "CH",
+    loc_timezone: "+1:00",
+  };
+
+  const handleActivitySelector = (view: string) => {
+    if (view === "p") {
+      setIsActivityPosts(true);
+    } else {
+      setIsActivityPosts(false);
+    }
+  };
 
   return (
     <>
       <NavBar />
-      <Container>
+      <Container fluid>
         <Row>
-          <Col lg={4}></Col>
-          <Col lg={4}>
+          <Col lg={3}>
             <Row>
-              <h3>Personal Information</h3>
+              <span
+                className="profile-information"
+                id="profile-information-name"
+              >
+                {profileInformation.pers_name}
+              </span>
             </Row>
             <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Username"
-                value={username != null ? username : ""}
-              ></input>
+              <span
+                className="profile-information"
+                id="profile-information-username"
+              >
+                {profileInformation.username}
+              </span>
             </Row>
             <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Full name"
-                value={pers_name != null ? pers_name : ""}
-              ></input>
+              <span
+                className="profile-information"
+                id="profile-information-email"
+              >
+                {profileInformation.pers_email}
+              </span>
             </Row>
             <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="E-Mail"
-                value={pers_email != null ? pers_email : ""}
-              ></input>
+              <span
+                className="profile-information"
+                id="profile-information-phonenumber"
+              >
+                {profileInformation.pers_phonenumber}
+              </span>
             </Row>
             <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Phonenumber"
-                value={pers_phonenumber != null ? pers_phonenumber : ""}
-              ></input>
+              <span
+                className="profile-information"
+                id="profile-information-position"
+              >
+                {profileInformation.biz_position}
+              </span>
             </Row>
             <Row>
-              <h3>Work Information</h3>
+              <span
+                className="profile-information"
+                id="profile-information-company"
+              >
+                {profileInformation.biz_company}
+              </span>
             </Row>
             <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Position"
-                value={biz_position != null ? biz_position : ""}
-              ></input>
+              <span
+                className="profile-information"
+                id="profile-information-city"
+              >
+                {profileInformation.loc_city}
+              </span>
             </Row>
             <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Company"
-                value={biz_company != null ? biz_company : ""}
-              ></input>
+              <span
+                className="profile-information"
+                id="profile-information-country"
+              >
+                {profileInformation.loc_country}
+              </span>
             </Row>
             <Row>
-              <h3></h3>
+              <span
+                className="profile-information"
+                id="profile-information-timezone"
+              >
+                {profileInformation.loc_timezone}
+              </span>
             </Row>
+          </Col>
+          <Col lg={6}>
             <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="City"
-                value={loc_city != null ? loc_city : ""}
-              ></input>
+              <div id="profile-activity-selector">
+                <button
+                  className={
+                    isActivityPosts ? "button button-primary" : "button"
+                  }
+                  id="profile-activity-selector-posts"
+                  onClick={() => handleActivitySelector("p")}
+                >
+                  Posts
+                </button>
+                <button
+                  className={
+                    isActivityPosts ? "button" : "button button-primary"
+                  }
+                  id="profile-activity-selector-challanges"
+                  onClick={() => handleActivitySelector("c")}
+                >
+                  Challanges
+                </button>
+              </div>
             </Row>
-            <Row>
-              <CountryDropdown />
-            </Row>
-            <Row>
-              <TimezoneDropdown />
-            </Row>
+          </Col>
+          <Col lg={3}>
+            <MessageWindow />
           </Col>
         </Row>
       </Container>

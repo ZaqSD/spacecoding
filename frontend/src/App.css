@@ -14,19 +14,38 @@ ul {
   }
 
 .button {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
     font-size: 18px;
     font-weight: 500;
     border-radius: 5px;
     border-width: 0px;
-    color: white;
+    background-color: #E5E5E5;
+    color: black;
     padding-top: 8px;
     padding-right: 12px;
     padding-bottom: 8px;
     padding-left: 12px;
 }
 
-.button:hover{
-    transition: background-color 125ms ease-in;
+.button:hover {
+    transition: background-color 200ms ease-out;
+    background-color: #D2D2D2;
+}
+
+.button-primary {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: var(--color-primary-blue);
+    font-weight: 600;
+    color: white;
+}
+
+.button-primary:hover {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: var(--color-primary-blue-hover);
+    filter: drop-shadow(0px 8px 8px var(--color-primary-blue-shadow));
 }
 
 .forumPost {
@@ -166,6 +185,7 @@ ul {
     transition: background-color 200ms ease-out;
     transition: filter 200ms ease-out;
     background-color: var(--color-primary-green);
+    color: white;
     height: 40px;
     margin-top: 20px;
 }
@@ -198,6 +218,7 @@ ul {
 #forum-createDialog #btn-post{
     transition: background-color 200ms ease-out;
     transition: filter 200ms ease-out;
+    color: white;
     background-color: var(--color-primary-blue);
     font-weight: 600;
     min-width: 20%;
@@ -224,7 +245,6 @@ ul {
 #forum-createDialog #btn-cancel:hover {
     transition: background-color 200ms ease-out;
     transition: filter 200ms ease-out;
-    background-color: #D2D2D2;
     filter: drop-shadow(0px 5px 5px #D2D2D2);
 }
 
@@ -297,4 +317,21 @@ ul {
 
 #login-field #btn-register:hover {
     background-color: #E5E5E5;
+}
+
+#profile-activity-selector {
+    width: 30%;
+    margin-top: 20px;
+}
+
+#profile-activity-selector-posts {
+    width: 50%;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#profile-activity-selector-challanges {
+    width: 50%;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
