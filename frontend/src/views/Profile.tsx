@@ -30,28 +30,28 @@ export default function Profile() {
             </Row>
             <Row>
               <input
-                className="profile-edit-input"
+                className="textfield"
                 placeholder="Username"
                 value={username != null ? username : ""}
               ></input>
             </Row>
             <Row>
               <input
-                className="profile-edit-input"
+                className="textfield"
                 placeholder="Full name"
                 value={pers_name != null ? pers_name : ""}
               ></input>
             </Row>
             <Row>
               <input
-                className="profile-edit-input"
+                className="textfield"
                 placeholder="E-Mail"
                 value={pers_email != null ? pers_email : ""}
               ></input>
             </Row>
             <Row>
               <input
-                className="profile-edit-input"
+                className="textfield"
                 placeholder="Phonenumber"
                 value={pers_phonenumber != null ? pers_phonenumber : ""}
               ></input>
@@ -61,14 +61,14 @@ export default function Profile() {
             </Row>
             <Row>
               <input
-                className="profile-edit-input"
+                className="textfield"
                 placeholder="Position"
                 value={biz_position != null ? biz_position : ""}
               ></input>
             </Row>
             <Row>
               <input
-                className="profile-edit-input"
+                className="textfield"
                 placeholder="Company"
                 value={biz_company != null ? biz_company : ""}
               ></input>
@@ -78,7 +78,7 @@ export default function Profile() {
             </Row>
             <Row>
               <input
-                className="profile-edit-input"
+                className="textfield"
                 placeholder="City"
                 value={loc_city != null ? loc_city : ""}
               ></input>
@@ -87,10 +87,7 @@ export default function Profile() {
               <CountryDropdown />
             </Row>
             <Row>
-              <input
-                className="profile-edit-input"
-                placeholder="Timezone"
-              ></input>
+              <input className="textfield" placeholder="Timezone"></input>
             </Row>
           </Col>
         </Row>

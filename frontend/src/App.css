@@ -1,7 +1,10 @@
 :root {
     --color-primary-blue: rgba(45, 50, 125, 1.0);
-    --color-primary-blue-shadow: rgba(45, 50, 125, 0.4);
+    --color-primary-blue-shadow: rgba(45, 50, 125, 0.5);
     --color-primary-blue-hover: #42478a;
+    --color-primary-green:#00a251;
+    --color-primary-green-hover: #00b45a;
+    --color-shadow: rgba(230, 248, 239, 0.4);
   }
 
 ul {
@@ -11,28 +14,38 @@ ul {
   }
 
 .button {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
     font-size: 18px;
     font-weight: 500;
     border-radius: 5px;
     border-width: 0px;
-    color: white;
+    background-color: #E5E5E5;
+    color: black;
     padding-top: 8px;
     padding-right: 12px;
     padding-bottom: 8px;
     padding-left: 12px;
 }
 
-.button:hover{
-    transition: background-color 125ms ease-in;
-}
-.buttonUpload {
-    background-color: rgb(0, 180, 90);
-
-    margin-top: 20px;
+.button:hover {
+    transition: background-color 200ms ease-out;
+    background-color: #D2D2D2;
 }
 
-.buttonUpload:hover {
-    background-color: rgb(0, 150, 70);
+.button-primary {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: var(--color-primary-blue);
+    font-weight: 600;
+    color: white;
+}
+
+.button-primary:hover {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: var(--color-primary-blue-hover);
+    filter: drop-shadow(0px 8px 8px var(--color-primary-blue-shadow));
 }
 
 .forumPost {
@@ -141,20 +154,98 @@ ul {
 }
 
 .profile-edit-input {
-    height: 30px;
     min-width: 500px;
-    border-radius: 5px;
-    border-color: #E5E5E5;
-    border-width: 2px;
-    background-color: #F6F6F6;
-    border-style: solid;
-    padding-left: 10px;
     margin: 10px;
 }
 
 .profile-edit-input:hover {
     transition: border-color 200ms ease-out;
     border-color: #B7B7B7;
+}
+
+.textfield {
+    transition: border-color 200ms ease-out;
+    font-size: 16px;
+    height: 40px;
+    border-radius: 5px;
+    border-color: #E5E5E5;
+    border-width: 2px;
+    background-color: #F6F6F6;
+    border-style: solid;
+    padding-left: 10px;
+    width:100%;
+}
+
+.textfield:hover {
+    transition: border-color 200ms ease-out;
+    border-color: #B7B7B7;
+}
+
+#forum-btn-createPost {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: var(--color-primary-green);
+    color: white;
+    height: 40px;
+    margin-top: 20px;
+}
+
+#forum-btn-createPost:hover {
+    transition: background-colr 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: var(--color-primary-green-hover);
+    filter: drop-shadow(0px 5px 5px #BDBDBD);
+}
+
+#forum-createDialog{
+    padding: 25px;
+}
+
+#forum-createDialog h1{
+    margin-top: 0px;
+}
+
+#forum-createDialog input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-width: 500px;
+}
+
+#forum-createDialog button {
+    margin-top: 10px;
+    height: 40px;
+}
+#forum-createDialog #btn-post{
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    color: white;
+    background-color: var(--color-primary-blue);
+    font-weight: 600;
+    min-width: 20%;
+    margin-right:20px;
+}
+
+#forum-createDialog #btn-post:hover {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: var(--color-primary-blue-hover);
+    filter: drop-shadow(0px 8px 8px var(--color-primary-blue-shadow));
+}
+
+#forum-createDialog #btn-cancel{
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: #E5E5E5;
+    color: black;
+    font-weight: 500;
+    min-width: 20%;
+    margin-right:25px;
+}
+
+#forum-createDialog #btn-cancel:hover {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    filter: drop-shadow(0px 5px 5px #D2D2D2);
 }
 
 #login-field {
@@ -210,7 +301,7 @@ ul {
     transition: background-color 200ms ease-out;
     transition: filter 200ms ease-out;
     background-color: var(--color-primary-blue-hover);
-    filter: drop-shadow(0px 8px 8px var(--color-primary-blue-shadow));
+    filter: drop-shadow(0px 5px 5px var(--color-primary-blue-shadow));
 }
 
 #login-field #btn-register {
