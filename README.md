@@ -10,7 +10,7 @@
 ### Frontend
 Execute inside /fontend:
 ```
-npm start
+yarn start
 ```
 Per default erreichbar unter localhost:3000
 

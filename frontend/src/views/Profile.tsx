@@ -4,6 +4,7 @@ import { Col, Container, Row } from "react-grid-system";
 
 import MessageWindow from "../components/MessageWindow";
 import NavBar from "../components/NavBar";
+import TimezoneDropdown from "../components/TimezoneDropdown";
 
 export default function Home() {
   const [isActivityPosts, setIsActivityPosts] = React.useState(true);
