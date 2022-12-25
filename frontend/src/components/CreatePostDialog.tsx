@@ -20,29 +20,47 @@ export default function SimpleDialog(props: CreatePostDialogProps) {
   return (
     <Dialog open={props.open}>
       <div id="forum-createDialog">
-        <Container>
-          <Row>
-            <h1>Create new Post</h1>
-          </Row>
-          <Row>
-            <input className="textfield" placeholder="Title"></input>
-          </Row>
-          <Row>
-            <input className="textfield" placeholder="Content"></input>
-          </Row>
-          <Row>
-            <button className="button" id="btn-post" onClick={handleSubmit}>
-              Post
-            </button>
-            <button
-              className="button"
-              id="btn-cancel"
-              onClick={props.handleDialog}
-            >
-              Cancel
-            </button>
-          </Row>
-        </Container>
+        <form method="post" action="createpost.php">
+          <Container>
+            <Row>
+              <h1>Create new Post</h1>
+            </Row>
+            <Row>
+              <input
+                className="textfield"
+                name="title"
+                placeholder="Title"
+                type="text"
+              ></input>
+            </Row>
+            <Row>
+              <input
+                className="textfield"
+                name="content"
+                placeholder="Content"
+                type="text"
+              ></input>
+            </Row>
+            <Row>
+              <button
+                className="button"
+                id="btn-post"
+                type="submit"
+                onClick={handleSubmit}
+              >
+                Post
+              </button>
+              <button
+                className="button"
+                id="btn-cancel"
+                type="button"
+                onClick={props.handleDialog}
+              >
+                Cancel
+              </button>
+            </Row>
+          </Container>
+        </form>
       </div>
     </Dialog>
   );

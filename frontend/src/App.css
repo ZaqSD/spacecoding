@@ -21,11 +21,12 @@ ul {
     border-radius: 5px;
     border-width: 0px;
     background-color: #E5E5E5;
-    color: black;
+    color: black !important;
     padding-top: 8px;
     padding-right: 12px;
     padding-bottom: 8px;
     padding-left: 12px;
+    text-decoration: none;
 }
 
 .button:hover {
@@ -38,7 +39,7 @@ ul {
     transition: filter 200ms ease-out;
     background-color: var(--color-primary-blue);
     font-weight: 600;
-    color: white;
+    color: white !important;
 }
 
 .button-primary:hover {
@@ -97,6 +98,10 @@ ul {
     font-weight: 700;
     font-size: 20px;
     margin: 0px;
+}
+
+.height-10 {
+    height: 10px;
 }
 
 .messageWindow {
@@ -163,6 +168,20 @@ ul {
     border-color: #B7B7B7;
 }
 
+.profile-information {
+    color: #444444;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.profile-information .profile-information-counter {
+    color: black;
+    font-size: 28px;
+    font-weight: 700;
+}
+
 .textfield {
     transition: border-color 200ms ease-out;
     font-size: 16px;
@@ -185,7 +204,7 @@ ul {
     transition: background-color 200ms ease-out;
     transition: filter 200ms ease-out;
     background-color: var(--color-primary-green);
-    color: white;
+    color: white !important;
     height: 40px;
     margin-top: 20px;
 }
@@ -334,4 +353,33 @@ ul {
     width: 50%;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+}
+
+#profile-information-edit {
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+#profile-information-name {
+    color: black;
+    font-size: 32px;
+    font-weight: 700;
+    width: 100%;
+}
+
+#profile-information-follow {
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+#profile-information-username {
+    color: #8D8D8D;
+    font-size: 16px;
+    margin-left: 10px;
 }
