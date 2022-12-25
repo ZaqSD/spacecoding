@@ -26,17 +26,17 @@ export default function Home() {
     followerCount: 4,
   };
 
-  const handleActivitySelector = (view: string) => {
+  function handleActivitySelector(view: string) {
     if (view === "p") {
       setIsActivityPosts(true);
     } else {
       setIsActivityPosts(false);
     }
-  };
+  }
 
-  const handleFollow = () => {
+  function handleFollow() {
     isFollowed ? setIsFollowed(false) : setIsFollowed(true);
-  };
+  }
 
   return (
     <>

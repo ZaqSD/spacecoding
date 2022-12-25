@@ -13,7 +13,7 @@ export default function ForumPost(props: ForumPostProps) {
   const [likeNr, setLikeNr] = React.useState(props.likeNr);
   const [liked, setLiked] = React.useState(props.isLiked);
 
-  const handleLike = () => {
+  function handleLike() {
     if (liked) {
       setLiked(false);
       setLikeNr(likeNr - 1);
@@ -21,7 +21,7 @@ export default function ForumPost(props: ForumPostProps) {
       setLiked(true);
       setLikeNr(likeNr + 1);
     }
-  };
+  }
 
   return (
     <div className="forumPost">
