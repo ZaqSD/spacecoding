@@ -33,11 +33,11 @@ export default function Forum() {
     },
   ]);
 
-  const handleCreatePost = () => {
+  function handleCreatePost() {
     setCreatePostOpen(!createPostOpen);
-  };
+  }
 
-  const uploadPost = () => {
+  function uploadPost() {
     setPosts((current) => [
       ...current,
       {
@@ -48,7 +48,7 @@ export default function Forum() {
         commentNr: 0,
       },
     ]);
-  };
+  }
 
   return (
     <>

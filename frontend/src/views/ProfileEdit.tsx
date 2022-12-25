@@ -17,8 +17,6 @@ const loc_country = "CH";
 const loc_timezone = "+1:00";
 
 export default function Profile() {
-  const fetchData = () => {};
-
   return (
     <>
       <NavBar />

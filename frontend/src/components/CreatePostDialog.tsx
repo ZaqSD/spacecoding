@@ -11,11 +11,11 @@ export interface CreatePostDialogProps {
 }
 
 export default function SimpleDialog(props: CreatePostDialogProps) {
-  const handleListItemClick = (value: string) => {};
+  function handleListItemClick(value: string) {}
 
-  const handleSubmit = () => {
+  function handleSubmit() {
     props.create();
-  };
+  }
 
   return (
     <Dialog open={props.open}>
@@ -43,7 +43,7 @@ export default function SimpleDialog(props: CreatePostDialogProps) {
             </Row>
             <Row>
               <button
-                className="button"
+                className="button button-primary"
                 id="btn-post"
                 type="submit"
                 onClick={handleSubmit}
