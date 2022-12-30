@@ -2,6 +2,8 @@ import * as React from "react";
 
 import { Col, Container, Row } from "react-grid-system";
 
+import CommentDialog from "./CommentDialog";
+
 interface ForumPostProps {
   title: string;
   content?: string;
@@ -12,6 +14,12 @@ interface ForumPostProps {
 export default function ForumPost(props: ForumPostProps) {
   const [likeNr, setLikeNr] = React.useState(props.likeNr);
   const [liked, setLiked] = React.useState(props.isLiked);
+
+  const [commentOpen, setCommentOpen] = React.useState(false);
+
+  function handleCommentDialog() {
+    setCommentOpen(!commentOpen);
+  }
 
   function handleLike() {
     if (liked) {
@@ -39,9 +47,19 @@ export default function ForumPost(props: ForumPostProps) {
         >
           Like ({likeNr})
         </button>
-        <button className="forumPostAction">
+        <button className="forumPostAction" onClick={handleCommentDialog}>
           Comments ({props.commentNr})
         </button>
+        <CommentDialog
+          open={commentOpen}
+          handleDialog={handleCommentDialog}
+          title={props.title}
+          content={props.content}
+          isLiked={props.isLiked}
+          likeNr={likeNr}
+          handleLike={handleLike}
+          commentNr={props.commentNr}
+        />
         <button className="forumPostAction">Share</button>
       </Row>
     </div>

@@ -19,7 +19,7 @@ export default function SimpleDialog(props: CreatePostDialogProps) {
 
   return (
     <Dialog open={props.open}>
-      <div id="forum-createDialog">
+      <div className="forum-dialog">
         <form method="post" action="createpost.php">
           <Container>
             <Row>
@@ -27,7 +27,7 @@ export default function SimpleDialog(props: CreatePostDialogProps) {
             </Row>
             <Row>
               <input
-                className="textfield"
+                className="textfield createPost-input"
                 name="title"
                 placeholder="Title"
                 type="text"
@@ -35,7 +35,7 @@ export default function SimpleDialog(props: CreatePostDialogProps) {
             </Row>
             <Row>
               <input
-                className="textfield"
+                className="textfield createPost-input"
                 name="content"
                 placeholder="Content"
                 type="text"
