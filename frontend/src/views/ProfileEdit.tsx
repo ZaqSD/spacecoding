@@ -29,94 +29,132 @@ export default function ProfileEdit(props: ProfileEditProps) {
     <>
       <Container>
         <Row>
-          <Col lg={4}></Col>
           <Col lg={4}>
-            <Row>
-              <h3>Personal Information</h3>
-            </Row>
-            <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Username"
-                value={
-                  props.profile.username != null ? props.profile.username : ""
-                }
-              ></input>
-            </Row>
-            <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Full name"
-                value={
-                  props.profile.pers_name != null ? props.profile.pers_name : ""
-                }
-              ></input>
-            </Row>
-            <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="E-Mail"
-                value={
-                  props.profile.pers_email != null
-                    ? props.profile.pers_email
-                    : ""
-                }
-              ></input>
-            </Row>
-            <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Phonenumber"
-                value={
-                  props.profile.pers_phonenumber != null
-                    ? props.profile.pers_phonenumber
-                    : ""
-                }
-              ></input>
-            </Row>
-            <Row>
-              <h3>Work Information</h3>
-            </Row>
-            <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Position"
-                value={
-                  props.profile.biz_position != null
-                    ? props.profile.biz_position
-                    : ""
-                }
-              ></input>
-            </Row>
-            <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Company"
-                value={
-                  props.profile.biz_company != null
-                    ? props.profile.biz_company
-                    : ""
-                }
-              ></input>
-            </Row>
-            <Row>
-              <h3>Location</h3>
-            </Row>
-            <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="City"
-                value={
-                  props.profile.loc_city != null ? props.profile.loc_city : ""
-                }
-              ></input>
-            </Row>
-            <Row>
-              <CountryDropdown />
-            </Row>
-            <Row>
-              <TimezoneDropdown />
-            </Row>
+            <div
+              className="profile-information-column"
+              id="profile-information-column-l"
+            >
+              <Row>
+                <h3>Personal Information</h3>
+              </Row>
+              <Row>
+                <input
+                  className="textfield profile-edit-input"
+                  placeholder="Username"
+                  value={
+                    props.profile.username != null ? props.profile.username : ""
+                  }
+                ></input>
+              </Row>
+              <Row>
+                <input
+                  className="textfield profile-edit-input"
+                  placeholder="Full name"
+                  value={
+                    props.profile.pers_name != null
+                      ? props.profile.pers_name
+                      : ""
+                  }
+                ></input>
+              </Row>
+              <Row>
+                <input
+                  className="textfield profile-edit-input"
+                  placeholder="E-Mail"
+                  value={
+                    props.profile.pers_email != null
+                      ? props.profile.pers_email
+                      : ""
+                  }
+                ></input>
+              </Row>
+              <Row>
+                <input
+                  className="textfield profile-edit-input"
+                  placeholder="Phonenumber"
+                  value={
+                    props.profile.pers_phonenumber != null
+                      ? props.profile.pers_phonenumber
+                      : ""
+                  }
+                ></input>
+              </Row>
+            </div>
+          </Col>
+          <Col lg={4}>
+            <div
+              className="profile-information-column"
+              id="profile-information-column-l"
+            >
+              <Row>
+                <h3>Work Information</h3>
+              </Row>
+              <Row>
+                <input
+                  className="textfield profile-edit-input"
+                  placeholder="Position"
+                  value={
+                    props.profile.biz_position != null
+                      ? props.profile.biz_position
+                      : ""
+                  }
+                ></input>
+              </Row>
+              <Row>
+                <input
+                  className="textfield profile-edit-input"
+                  placeholder="Company"
+                  value={
+                    props.profile.biz_company != null
+                      ? props.profile.biz_company
+                      : ""
+                  }
+                ></input>
+              </Row>
+              <Row>
+                <h3>Location</h3>
+              </Row>
+              <Row>
+                <input
+                  className="textfield profile-edit-input"
+                  placeholder="City"
+                  value={
+                    props.profile.loc_city != null ? props.profile.loc_city : ""
+                  }
+                ></input>
+              </Row>
+              <Row>
+                <CountryDropdown />
+              </Row>
+              <Row>
+                <TimezoneDropdown />
+              </Row>
+            </div>
+          </Col>
+          <Col lg={4}>
+            <div
+              className="profile-information-column"
+              id="profile-information-column-l"
+            >
+              <Col lg={12}>
+                <span>
+                  <button
+                    className="button button-primary"
+                    id="profile-edit-save"
+                  >
+                    Save Changes
+                  </button>
+                  <button className="button" id="profile-edit-cancel">
+                    Cancel
+                  </button>
+                </span>
+              </Col>
+              <Col lg={12}>
+                <button className="button button-red" id="profile-edit-delete">
+                  Delete Profile
+                </button>
+              </Col>
+            </div>
           </Col>
         </Row>
       </Container>
