@@ -1,20 +1,23 @@
 import * as React from "react";
 
-import { Col, Container, Row } from "react-grid-system";
+import { Container, Row } from "react-grid-system";
 
 import Dialog from "@mui/material/Dialog";
 
-export interface CreatePostDialogProps {
+export interface CreateCommentDialogProps {
   open: boolean;
-  handleDialog: React.MouseEventHandler<HTMLButtonElement>;
-  create: () => void;
+  handleDialog: () => void;
+  post: (content: string) => void;
 }
 
-export default function SimpleDialog(props: CreatePostDialogProps) {
-  function handleListItemClick(value: string) {}
+export default function SimpleDialog(props: CreateCommentDialogProps) {
+  const inputElement = document.getElementById(
+    "forum-createComment-input"
+  ) as HTMLInputElement;
 
   function handleSubmit() {
-    props.create();
+    props.post(inputElement.value);
+    props.handleDialog();
   }
 
   return (
@@ -23,21 +26,14 @@ export default function SimpleDialog(props: CreatePostDialogProps) {
         <form method="post" action="createpost.php">
           <Container>
             <Row>
-              <h1>Create new Post</h1>
+              <h1>Create new Comment</h1>
             </Row>
             <Row>
               <input
                 className="textfield createPost-input"
-                name="title"
-                placeholder="Title"
-                type="text"
-              ></input>
-            </Row>
-            <Row>
-              <input
-                className="textfield createPost-input"
-                name="content"
-                placeholder="Content"
+                id="forum-createComment-input"
+                name="comment"
+                placeholder="Comment"
                 type="text"
               ></input>
             </Row>
@@ -48,13 +44,13 @@ export default function SimpleDialog(props: CreatePostDialogProps) {
                 type="submit"
                 onClick={handleSubmit}
               >
-                Post
+                Create
               </button>
               <button
                 className="button"
                 id="btn-cancel"
                 type="button"
-                onClick={props.handleDialog}
+                onClick={() => props.handleDialog()}
               >
                 Cancel
               </button>
