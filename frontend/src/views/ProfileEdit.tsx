@@ -3,23 +3,30 @@ import * as React from "react";
 import { Col, Container, Row } from "react-grid-system";
 
 import CountryDropdown from "../components/CountryDropdown";
-import NavBar from "../components/NavBar";
 import TimezoneDropdown from "../components/TimezoneDropdown";
 
-const username = "testuser";
-const pers_name = "test user";
-const pers_email = "email";
-const pers_phonenumber = "(123) 456 7890";
-const biz_position = "Software Engineer";
-const biz_company = "Google";
-const loc_city = "Zurich";
-const loc_country = "CH";
-const loc_timezone = "+1:00";
+interface ProfileEditProps {
+  profile: {
+    id: number;
+    username: string;
+    pers_name: string;
+    pers_email: string;
+    pers_phonenumber: string;
+    biz_position: string;
+    biz_company: string;
+    loc_city: string;
+    loc_country: string;
+    loc_timezone: string;
+    followCount: number;
+    followerCount: number;
+  };
+  showEditView: boolean;
+  setShowEditView: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export default function Profile() {
+export default function ProfileEdit(props: ProfileEditProps) {
   return (
     <>
-      <NavBar />
       <Container>
         <Row>
           <Col lg={4}></Col>
@@ -31,28 +38,40 @@ export default function Profile() {
               <input
                 className="textfield profile-edit-input"
                 placeholder="Username"
-                value={username != null ? username : ""}
+                value={
+                  props.profile.username != null ? props.profile.username : ""
+                }
               ></input>
             </Row>
             <Row>
               <input
                 className="textfield profile-edit-input"
                 placeholder="Full name"
-                value={pers_name != null ? pers_name : ""}
+                value={
+                  props.profile.pers_name != null ? props.profile.pers_name : ""
+                }
               ></input>
             </Row>
             <Row>
               <input
                 className="textfield profile-edit-input"
                 placeholder="E-Mail"
-                value={pers_email != null ? pers_email : ""}
+                value={
+                  props.profile.pers_email != null
+                    ? props.profile.pers_email
+                    : ""
+                }
               ></input>
             </Row>
             <Row>
               <input
                 className="textfield profile-edit-input"
                 placeholder="Phonenumber"
-                value={pers_phonenumber != null ? pers_phonenumber : ""}
+                value={
+                  props.profile.pers_phonenumber != null
+                    ? props.profile.pers_phonenumber
+                    : ""
+                }
               ></input>
             </Row>
             <Row>
@@ -62,24 +81,34 @@ export default function Profile() {
               <input
                 className="textfield profile-edit-input"
                 placeholder="Position"
-                value={biz_position != null ? biz_position : ""}
+                value={
+                  props.profile.biz_position != null
+                    ? props.profile.biz_position
+                    : ""
+                }
               ></input>
             </Row>
             <Row>
               <input
                 className="textfield profile-edit-input"
                 placeholder="Company"
-                value={biz_company != null ? biz_company : ""}
+                value={
+                  props.profile.biz_company != null
+                    ? props.profile.biz_company
+                    : ""
+                }
               ></input>
             </Row>
             <Row>
-              <h3></h3>
+              <h3>Location</h3>
             </Row>
             <Row>
               <input
                 className="textfield profile-edit-input"
                 placeholder="City"
-                value={loc_city != null ? loc_city : ""}
+                value={
+                  props.profile.loc_city != null ? props.profile.loc_city : ""
+                }
               ></input>
             </Row>
             <Row>
