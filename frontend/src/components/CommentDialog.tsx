@@ -3,6 +3,7 @@ import * as React from "react";
 import { Col, Container, Row } from "react-grid-system";
 
 import Comment from "./Comment";
+import CreateCommentDialog from "./CreateCommentDialog";
 import Dialog from "@mui/material/Dialog";
 
 export interface CommentProps {
@@ -17,23 +18,40 @@ export interface CommentProps {
 }
 
 export default function SimpleDialog(props: CommentProps) {
-  function fetchComments() {
-    const comments = [
-      {
-        owner: "Andreas Siaplaouras",
-        createdOn: "4d ago",
-        content:
-          "This is a quite well-formed post I really enjoyed reading it.",
-      },
-      {
-        owner: "Luan Caduff",
-        createdOn: "2d ago",
-        content:
-          "AcKtUaLlY, it is not your first post, it's your zero-th, CHECK YOUR FACTS.",
-      },
-    ];
+  const [createCommentOpen, setCreateCommentOpen] = React.useState(false);
+  const [commentList, setCommentList] = React.useState([
+    {
+      owner: "Andreas Siaplaouras",
+      createdOn: "4d ago",
+      content: "This is a quite well-formed post I really enjoyed reading it.",
+    },
+    {
+      owner: "Luan Caduff",
+      createdOn: "2d ago",
+      content:
+        "AcKtUaLlY, it is not your first post, it's your zero-th, CHECK YOUR FACTS.",
+    },
+  ]);
 
-    return comments;
+  function fetchComments() {
+    return commentList;
+  }
+
+  function handleCreateCommentDialog() {
+    createCommentOpen === true
+      ? setCreateCommentOpen(false)
+      : setCreateCommentOpen(true);
+  }
+
+  function uploadComment(content: string) {
+    setCommentList((current) => [
+      ...current,
+      {
+        owner: "Testuser",
+        createdOn: "18:44",
+        content: content,
+      },
+    ]);
   }
 
   const comments = fetchComments();
@@ -66,22 +84,18 @@ export default function SimpleDialog(props: CommentProps) {
             </h3>
           </Row>
           <Row>
-            <form>
-              <input
-                className="textfield"
-                id="forum-comment-create"
-                name="form-comment-create"
-                placeholder="New Comment"
-                type="text"
-              ></input>
-              <button
-                className="button button-primary"
-                id="forum-comment-createbtn"
-                type="submit"
-              >
-                Post
-              </button>
-            </form>
+            <button
+              className="button"
+              id="forum-comment-createBtn"
+              onClick={() => handleCreateCommentDialog()}
+            >
+              Create comment
+            </button>
+            <CreateCommentDialog
+              open={createCommentOpen}
+              handleDialog={handleCreateCommentDialog}
+              post={uploadComment}
+            />
           </Row>
           {comments.map(({ owner, createdOn, content }) => (
             <Row>

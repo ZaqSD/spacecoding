@@ -286,19 +286,12 @@ ul {
     border-left: 8px solid #E5E5E5;
 }
 
-#forum-comment-create {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    min-width: 80%;
-}
-#forum-comment-createbtn{
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    min-width: 20%;
-}
-
 #forum-comment-commenttitle{
     margin-top: 30px;
+}
+
+#forum-comment-createBtn{
+    width: 100%;
 }
 
 #forum-comment-owner{
