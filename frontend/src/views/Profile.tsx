@@ -14,7 +14,7 @@ export default function Home() {
   const [userId, setUserId] = React.useState(1);
   const [isFollowed, setIsFollowed] = React.useState(false);
 
-  const profileInformation = {
+  const [profileInformation, setProfileInforation] = React.useState({
     id: 1,
     username: "testuser",
     pers_name: "Test User",
@@ -27,7 +27,7 @@ export default function Home() {
     loc_timezone: "+1:00",
     followCount: 5,
     followerCount: 4,
-  };
+  });
 
   function handleActivitySelector(view: string) {
     if (view === "p") {
@@ -201,6 +201,7 @@ export default function Home() {
       ) : (
         <ProfileEdit
           profile={profileInformation}
+          setProfile={setProfileInforation}
           showEditView={showEditView}
           setShowEditView={setShowEditView}
         />
