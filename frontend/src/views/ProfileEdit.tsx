@@ -3,6 +3,8 @@ import * as React from "react";
 import { Col, Container, Row } from "react-grid-system";
 
 import CountryDropdown from "../components/CountryDropdown";
+import DeleteAccountDialog from "../components/DeleteAccountDialog";
+import MessageDialog from "../components/MessageDialog";
 import TimezoneDropdown from "../components/TimezoneDropdown";
 
 interface ProfileEditProps {
@@ -25,9 +27,32 @@ interface ProfileEditProps {
 }
 
 export default function ProfileEdit(props: ProfileEditProps) {
+  const [errorOpen, setErrorOpen] = React.useState(false);
+  const [deleteAccountOpen, setDeleteAccountOpen] = React.useState(false);
+
+  async function handleSave() {
+    const uploadSuccessful = await postData();
+    uploadSuccessful ? props.setShowEditView(false) : setErrorOpen(true);
+  }
+
+  function postData() {
+    // TODO: Send POST request to backend with changes
+    return false;
+  }
   return (
     <>
       <Container>
+        <DeleteAccountDialog
+          open={deleteAccountOpen}
+          handleDialog={setDeleteAccountOpen}
+        />
+        <MessageDialog
+          title="Changes could not be saved"
+          content="Something went wrong and your changes could not be saved. Please try again in a few moments."
+          type="error"
+          open={errorOpen}
+          handleDialog={setErrorOpen}
+        />
         <Row>
           <Col lg={4}>
             <div
@@ -141,16 +166,25 @@ export default function ProfileEdit(props: ProfileEditProps) {
                   <button
                     className="button button-primary"
                     id="profile-edit-save"
+                    onClick={() => handleSave()}
                   >
                     Save Changes
                   </button>
-                  <button className="button" id="profile-edit-cancel">
+                  <button
+                    className="button"
+                    id="profile-edit-cancel"
+                    onClick={() => props.setShowEditView(false)}
+                  >
                     Cancel
                   </button>
                 </span>
               </Col>
               <Col lg={12}>
-                <button className="button button-red" id="profile-edit-delete">
+                <button
+                  className="button button-red"
+                  id="profile-edit-delete"
+                  onClick={() => setDeleteAccountOpen(true)}
+                >
                   Delete Profile
                 </button>
               </Col>

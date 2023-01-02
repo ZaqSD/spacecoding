@@ -64,7 +64,6 @@ ul {
     filter: drop-shadow(0px 8px 8px var(--color-primary-blue-shadow));
 }
 
-
 .forum-dialog{
     padding: 25px;
 }
@@ -87,6 +86,7 @@ ul {
     margin-top: 10px;
     height: 40px;
 }
+
 .forum-dialog #btn-post{
     transition: background-color 200ms ease-out;
     transition: filter 200ms ease-out;
@@ -173,6 +173,37 @@ ul {
 
 .height-10 {
     height: 10px;
+}
+
+.margin-10 {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.message-button{
+    font-size: 18px;
+    height: 40px;
+    min-width: 150px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.message-content{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.message-dialog {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    min-width: 400px;
+}
+
+.message-title{
+    font-size: 36px;
+    margin-bottom: 0px;
 }
 
 .messageWindow {
@@ -275,6 +306,26 @@ ul {
     transition: border-color 200ms ease-out;
     border-color: #B7B7B7;
 }
+
+#deleteAcc-cancel{
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+}
+
+#deleteAcc-confirm{
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    float: right;
+}
+
+#deleteAcc-delete {
+    font-weight: 900;
+    color: #EB0000;
+}
+
 
 #forum-btn-createPost {
     transition: background-color 200ms ease-out;
