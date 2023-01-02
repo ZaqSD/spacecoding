@@ -289,6 +289,13 @@ ul {
     font-weight: 700;
 }
 
+.register-inputarea{
+    width: 40%;
+    margin-left: auto;
+    margin-top: 100px;
+    margin-right: auto;
+}
+
 .textfield {
     transition: border-color 200ms ease-out;
     font-size: 16px;
@@ -386,6 +393,15 @@ ul {
     margin-top: 5px;
 }
 
+#login-loginBtn{
+    color:white;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 40px;
+    width: 100%;
+}
+
 #login-field {
     background-color: white;
     position: absolute;
@@ -423,23 +439,6 @@ ul {
 #login-field input:hover {
     transition: border-color 125ms ease-out;
     border-color: #B7B7B7;
-}
-
-#login-field #btn-login {
-    background-color: var(--color-primary-blue);
-    font-weight: 600;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    height: 40px;
-    width: 100%;
-}
-
-#login-field #btn-login:hover {
-    transition: background-color 200ms ease-out;
-    transition: filter 200ms ease-out;
-    background-color: var(--color-primary-blue-hover);
-    filter: drop-shadow(0px 5px 5px var(--color-primary-blue-shadow));
 }
 
 #login-field #btn-register {
@@ -530,4 +529,24 @@ ul {
     color: #8D8D8D;
     font-size: 16px;
     margin-left: 10px;
+}
+
+#register-back {
+    font-size: 20px;
+    width: 45%;
+    height: 45px;
+    float:left;
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-right: auto;
+}
+
+#register-next {
+    font-size: 20px;
+    width: 45%;
+    height: 45px;
+    float: right;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-right: 0px;
 }
