@@ -474,6 +474,13 @@ ul {
     border-bottom-left-radius: 0px;
 }
 
+#profile-delete-isDeletedBtn{
+    text-align: center;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #profile-edit-cancel{
     width: 47%;
     height: 40px;

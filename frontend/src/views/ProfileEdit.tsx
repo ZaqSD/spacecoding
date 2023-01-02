@@ -66,6 +66,7 @@ const updatedInformation: {
 
 export default function ProfileEdit(props: ProfileEditProps) {
   const [errorOpen, setErrorOpen] = React.useState(false);
+  const [isDeletedOpen, setIsDeletedOpen] = React.useState(false);
   const [deleteAccountOpen, setDeleteAccountOpen] = React.useState(false);
 
   async function handleSave() {
@@ -78,6 +79,26 @@ export default function ProfileEdit(props: ProfileEditProps) {
     await updateDataUI();
     return true;
   }
+
+  function confirmDeletion(isConfirmed: boolean) {
+    setDeleteAccountOpen(false);
+    if (isConfirmed) {
+      // TODO: Deactivate Account in DB
+      // TODO: Auto log out
+      setIsDeletedOpen(true);
+    }
+  }
+
+  const isDeletedButton = (
+    <a
+      className="button button-primary"
+      id="profile-delete-isDeletedBtn"
+      type="button"
+      href="/login"
+    >
+      Okay
+    </a>
+  );
 
   function updateDataUI(username?: string) {
     props.setProfile({
@@ -128,7 +149,7 @@ export default function ProfileEdit(props: ProfileEditProps) {
       <Container>
         <DeleteAccountDialog
           open={deleteAccountOpen}
-          handleDialog={setDeleteAccountOpen}
+          isConfirmed={confirmDeletion}
         />
         <MessageDialog
           title="Changes could not be saved"
@@ -136,6 +157,18 @@ export default function ProfileEdit(props: ProfileEditProps) {
           type="error"
           open={errorOpen}
           handleDialog={setErrorOpen}
+        />
+        <MessageDialog
+          title="Account has been deleted"
+          content={
+            "Your Account has been deleted. " +
+            "If you change your mind within 30 days, please contact a siteadmin for recovery. " +
+            "Recovery is not guaranteed"
+          }
+          type="error"
+          button={isDeletedButton}
+          open={isDeletedOpen}
+          handleDialog={setIsDeletedOpen}
         />
         <Row>
           <Col lg={4}>

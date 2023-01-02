@@ -8,6 +8,7 @@ export interface MessageDialogProps {
   title: string;
   content: string;
   type: string;
+  button?: React.ReactElement;
   open: boolean;
   handleDialog: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -24,14 +25,18 @@ export default function SimpleDialog(props: MessageDialogProps) {
             <p className="message-content">{props.content}</p>
           </Row>
           <Row>
-            <button
-              className="button button-primary message-button"
-              id="btn-post"
-              type="button"
-              onClick={() => props.handleDialog(false)}
-            >
-              Okay
-            </button>
+            {props.button != null ? (
+              props.button
+            ) : (
+              <button
+                className="button button-primary message-button"
+                id="btn-post"
+                type="button"
+                onClick={() => props.handleDialog(false)}
+              >
+                Okay
+              </button>
+            )}
           </Row>
         </Container>
       </div>

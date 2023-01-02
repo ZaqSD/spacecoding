@@ -5,7 +5,7 @@ import { Row } from "react-grid-system";
 
 export interface MessageDialogProps {
   open: boolean;
-  handleDialog: React.Dispatch<React.SetStateAction<boolean>>;
+  isConfirmed: (isConfirmed: boolean) => void;
 }
 
 export default function SimpleDialog(props: MessageDialogProps) {
@@ -27,7 +27,7 @@ export default function SimpleDialog(props: MessageDialogProps) {
             className="button"
             id="deleteAcc-cancel"
             type="button"
-            onClick={() => props.handleDialog(false)}
+            onClick={() => props.isConfirmed(false)}
           >
             Cancel
           </button>
@@ -39,7 +39,7 @@ export default function SimpleDialog(props: MessageDialogProps) {
             className="button button-red"
             id="deleteAcc-confirm"
             type="button"
-            onClick={() => props.handleDialog(false)}
+            onClick={() => props.isConfirmed(true)}
           >
             Yes, I am sure
           </button>
