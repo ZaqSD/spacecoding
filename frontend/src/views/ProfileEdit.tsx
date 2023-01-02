@@ -3,91 +3,324 @@ import * as React from "react";
 import { Col, Container, Row } from "react-grid-system";
 
 import CountryDropdown from "../components/CountryDropdown";
-import NavBar from "../components/NavBar";
+import DeleteAccountDialog from "../components/DeleteAccountDialog";
+import MessageDialog from "../components/MessageDialog";
 import TimezoneDropdown from "../components/TimezoneDropdown";
 
-const username = "testuser";
-const pers_name = "test user";
-const pers_email = "email";
-const pers_phonenumber = "(123) 456 7890";
-const biz_position = "Software Engineer";
-const biz_company = "Google";
-const loc_city = "Zurich";
-const loc_country = "CH";
-const loc_timezone = "+1:00";
+interface ProfileEditProps {
+  profile: {
+    id: number;
+    username: string;
+    pers_name: string;
+    pers_email: string;
+    pers_phonenumber: string;
+    biz_position: string;
+    biz_company: string;
+    loc_city: string;
+    loc_country: string;
+    loc_timezone: string;
+    followCount: number;
+    followerCount: number;
+  };
+  setProfile: React.Dispatch<
+    React.SetStateAction<{
+      id: number;
+      username: string;
+      pers_name: string;
+      pers_email: string;
+      pers_phonenumber: string;
+      biz_position: string;
+      biz_company: string;
+      loc_city: string;
+      loc_country: string;
+      loc_timezone: string;
+      followCount: number;
+      followerCount: number;
+    }>
+  >;
+  showEditView: boolean;
+  setShowEditView: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export default function Profile() {
+const updatedInformation: {
+  username: string;
+  pers_name: string;
+  pers_email: string;
+  pers_phonenumber: string;
+  biz_position: string;
+  biz_company: string;
+  loc_city: string;
+  loc_country: string;
+  loc_timezone: string;
+} = {
+  username: "",
+  pers_name: "",
+  pers_email: "",
+  pers_phonenumber: "",
+  biz_position: "",
+  biz_company: "",
+  loc_city: "",
+  loc_country: "",
+  loc_timezone: "",
+};
+
+export default function ProfileEdit(props: ProfileEditProps) {
+  const [errorOpen, setErrorOpen] = React.useState(false);
+  const [isDeletedOpen, setIsDeletedOpen] = React.useState(false);
+  const [deleteAccountOpen, setDeleteAccountOpen] = React.useState(false);
+
+  async function handleSave() {
+    const uploadSuccessful = await postData();
+    uploadSuccessful ? props.setShowEditView(false) : setErrorOpen(true);
+  }
+
+  async function postData() {
+    // TODO: Send POST request to backend with changes
+    await updateDataUI();
+    return true;
+  }
+
+  function confirmDeletion(isConfirmed: boolean) {
+    setDeleteAccountOpen(false);
+    if (isConfirmed) {
+      // TODO: Deactivate Account in DB
+      // TODO: Auto log out
+      setIsDeletedOpen(true);
+    }
+  }
+
+  const isDeletedButton = (
+    <a
+      className="button button-primary"
+      id="profile-delete-isDeletedBtn"
+      type="button"
+      href="/login"
+    >
+      Okay
+    </a>
+  );
+
+  function updateDataUI(username?: string) {
+    props.setProfile({
+      id: props.profile.id,
+      username:
+        updatedInformation.username !== ""
+          ? updatedInformation.username
+          : props.profile.username,
+      pers_name:
+        updatedInformation.pers_name !== ""
+          ? updatedInformation.pers_name
+          : props.profile.pers_name,
+      pers_email:
+        updatedInformation.pers_email !== ""
+          ? updatedInformation.pers_email
+          : props.profile.pers_email,
+      pers_phonenumber:
+        updatedInformation.pers_phonenumber !== ""
+          ? updatedInformation.pers_phonenumber
+          : props.profile.pers_phonenumber,
+      biz_position:
+        updatedInformation.biz_position !== ""
+          ? updatedInformation.biz_position
+          : props.profile.biz_position,
+      biz_company:
+        updatedInformation.biz_company !== ""
+          ? updatedInformation.biz_company
+          : props.profile.biz_company,
+      loc_city:
+        updatedInformation.loc_city !== ""
+          ? updatedInformation.loc_city
+          : props.profile.loc_city,
+      loc_country:
+        updatedInformation.loc_country !== ""
+          ? updatedInformation.loc_country
+          : props.profile.loc_country,
+      loc_timezone:
+        updatedInformation.loc_timezone !== ""
+          ? updatedInformation.loc_timezone
+          : props.profile.loc_timezone,
+      followCount: props.profile.followCount,
+      followerCount: props.profile.followerCount,
+    });
+  }
+
   return (
     <>
-      <NavBar />
       <Container>
+        <DeleteAccountDialog
+          open={deleteAccountOpen}
+          isConfirmed={confirmDeletion}
+        />
+        <MessageDialog
+          title="Changes could not be saved"
+          content="Something went wrong and your changes could not be saved. Please try again in a few moments."
+          type="error"
+          open={errorOpen}
+          handleDialog={setErrorOpen}
+        />
+        <MessageDialog
+          title="Account has been deleted"
+          content={
+            "Your Account has been deleted. " +
+            "If you change your mind within 30 days, please contact a siteadmin for recovery. " +
+            "Recovery is not guaranteed"
+          }
+          type="error"
+          button={isDeletedButton}
+          open={isDeletedOpen}
+          handleDialog={setIsDeletedOpen}
+        />
         <Row>
-          <Col lg={4}></Col>
           <Col lg={4}>
-            <Row>
-              <h3>Personal Information</h3>
-            </Row>
-            <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Username"
-                value={username != null ? username : ""}
-              ></input>
-            </Row>
-            <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Full name"
-                value={pers_name != null ? pers_name : ""}
-              ></input>
-            </Row>
-            <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="E-Mail"
-                value={pers_email != null ? pers_email : ""}
-              ></input>
-            </Row>
-            <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Phonenumber"
-                value={pers_phonenumber != null ? pers_phonenumber : ""}
-              ></input>
-            </Row>
-            <Row>
-              <h3>Work Information</h3>
-            </Row>
-            <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Position"
-                value={biz_position != null ? biz_position : ""}
-              ></input>
-            </Row>
-            <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="Company"
-                value={biz_company != null ? biz_company : ""}
-              ></input>
-            </Row>
-            <Row>
-              <h3></h3>
-            </Row>
-            <Row>
-              <input
-                className="textfield profile-edit-input"
-                placeholder="City"
-                value={loc_city != null ? loc_city : ""}
-              ></input>
-            </Row>
-            <Row>
-              <CountryDropdown />
-            </Row>
-            <Row>
-              <TimezoneDropdown />
-            </Row>
+            <div
+              className="profile-information-column"
+              id="profile-information-column-l"
+            >
+              <Row>
+                <h3>Personal Information</h3>
+              </Row>
+              <Row>
+                <input
+                  className="textfield profile-edit-input"
+                  id="profile-edit-username"
+                  placeholder={
+                    props.profile.username != null ? props.profile.username : ""
+                  }
+                  onChange={(event) => {
+                    updatedInformation.username = event.target.value;
+                  }}
+                ></input>
+              </Row>
+              <Row>
+                <input
+                  className="textfield profile-edit-input"
+                  placeholder={
+                    props.profile.pers_name != null
+                      ? props.profile.pers_name
+                      : ""
+                  }
+                  onChange={(event) => {
+                    updatedInformation.pers_name = event.target.value;
+                  }}
+                ></input>
+              </Row>
+              <Row>
+                <input
+                  className="textfield profile-edit-input"
+                  placeholder={
+                    props.profile.pers_email != null
+                      ? props.profile.pers_email
+                      : ""
+                  }
+                  onChange={(event) => {
+                    updatedInformation.pers_email = event.target.value;
+                  }}
+                ></input>
+              </Row>
+              <Row>
+                <input
+                  className="textfield profile-edit-input"
+                  placeholder={
+                    props.profile.pers_phonenumber != null
+                      ? props.profile.pers_phonenumber
+                      : ""
+                  }
+                  onChange={(event) => {
+                    updatedInformation.pers_phonenumber = event.target.value;
+                  }}
+                ></input>
+              </Row>
+            </div>
+          </Col>
+          <Col lg={4}>
+            <div
+              className="profile-information-column"
+              id="profile-information-column-l"
+            >
+              <Row>
+                <h3>Work Information</h3>
+              </Row>
+              <Row>
+                <input
+                  className="textfield profile-edit-input"
+                  placeholder={
+                    props.profile.biz_position != null
+                      ? props.profile.biz_position
+                      : ""
+                  }
+                  onChange={(event) => {
+                    updatedInformation.biz_position = event.target.value;
+                  }}
+                ></input>
+              </Row>
+              <Row>
+                <input
+                  className="textfield profile-edit-input"
+                  placeholder={
+                    props.profile.biz_company != null
+                      ? props.profile.biz_company
+                      : ""
+                  }
+                  onChange={(event) => {
+                    updatedInformation.biz_company = event.target.value;
+                  }}
+                ></input>
+              </Row>
+              <Row>
+                <h3>Location</h3>
+              </Row>
+              <Row>
+                <input
+                  className="textfield profile-edit-input"
+                  placeholder={
+                    props.profile.loc_city != null ? props.profile.loc_city : ""
+                  }
+                  onChange={(event) => {
+                    updatedInformation.loc_city = event.target.value;
+                  }}
+                ></input>
+              </Row>
+              <Row>
+                <CountryDropdown />
+              </Row>
+              <Row>
+                <TimezoneDropdown />
+              </Row>
+            </div>
+          </Col>
+          <Col lg={4}>
+            <div
+              className="profile-information-column"
+              id="profile-information-column-l"
+            >
+              <Col lg={12}>
+                <span>
+                  <button
+                    className="button button-primary"
+                    id="profile-edit-save"
+                    onClick={() => handleSave()}
+                  >
+                    Save Changes
+                  </button>
+                  <button
+                    className="button"
+                    id="profile-edit-cancel"
+                    onClick={() => props.setShowEditView(false)}
+                  >
+                    Cancel
+                  </button>
+                </span>
+              </Col>
+              <Col lg={12}>
+                <button
+                  className="button button-red"
+                  id="profile-edit-delete"
+                  onClick={() => setDeleteAccountOpen(true)}
+                >
+                  Delete Profile
+                </button>
+              </Col>
+            </div>
           </Col>
         </Row>
       </Container>

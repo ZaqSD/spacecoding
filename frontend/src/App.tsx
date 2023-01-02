@@ -22,7 +22,6 @@ function App() {
             <Route path="/forum" element={<Forum />} />
             <Route path="/challanges" element={<Challanges />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/profile/edit" element={<ProfileEdit />} />
           </Routes>
         </div>
       </Router>
