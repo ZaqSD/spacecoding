@@ -33,6 +33,10 @@ export default function SimpleDialog(props: CreatePostDialogProps) {
               ></input>
             </Row>
             <Row>
+              {/*
+              TODO: Discuss if Text should an attachment like media/challange or a static
+              TODO: Discuss Characterlimit (250 / 2000 / ...) ?
+              */}
               <input
                 className="textfield createPost-input"
                 name="content"
