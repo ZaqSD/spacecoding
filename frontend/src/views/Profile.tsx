@@ -44,6 +44,14 @@ export default function Home() {
 
   return (
     <>
+      <Button
+        className="button"
+        onClick={() => {
+          userId == 0 ? setUserId(1) : setUserId(0);
+        }}
+      >
+        Switch
+      </Button>
       <NavBar />
       {!showEditView ? (
         <Container fluid>
