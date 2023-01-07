@@ -7,8 +7,6 @@ import Forum from "./views/Forum";
 import Home from "./views/Home";
 import Login from "./views/Loginpage";
 import Profile from "./views/Profile";
-import ProfileEdit from "./views/ProfileEdit";
-import React from "react";
 import { ScreenClassProvider } from "react-grid-system";
 
 function App() {

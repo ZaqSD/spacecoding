@@ -2,6 +2,7 @@ import * as React from "react";
 
 import { Col, Container, Row } from "react-grid-system";
 
+import { Button } from "@mui/material";
 import MessageWindow from "../components/MessageWindow";
 import NavBar from "../components/NavBar";
 import ProfileEdit from "./ProfileEdit";
@@ -63,27 +64,51 @@ export default function Home() {
                 <div className="height-10"></div>
               </Row>
               <Row>
-                {userId === profileInformation.id ? (
-                  <button
-                    className="profile-information button"
-                    id="profile-information-edit"
-                    onClick={() => setShowEditView(true)}
-                  >
-                    Edit Information
-                  </button>
-                ) : (
-                  <a
-                    className={
-                      isFollowed
-                        ? "profile-information button"
-                        : "profile-information button button-primary"
-                    }
-                    id="profile-information-follow"
-                    onClick={handleFollow}
-                  >
-                    {isFollowed ? "Followed" : "Follow"}
-                  </a>
-                )}
+                <span id="profile-information-followSpan">
+                  {userId === profileInformation.id ? (
+                    <button
+                      className="profile-information button"
+                      id="profile-information-edit"
+                      onClick={() => setShowEditView(true)}
+                    >
+                      Edit Information
+                    </button>
+                  ) : isFollowed ? (
+                    <>
+                      <button
+                        className="profile-information button"
+                        id="profile-information-followed"
+                        onClick={handleFollow}
+                      >
+                        Followed
+                      </button>
+                      <button
+                        className="profile-information button"
+                        id="profile-information-message"
+                        onClick={handleFollow}
+                      >
+                        Message
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        className="profile-information button button-primary"
+                        id="profile-information-follow"
+                        onClick={handleFollow}
+                      >
+                        Follow
+                      </button>
+                      <button
+                        className="profile-information button"
+                        id="profile-information-message"
+                        onClick={handleFollow}
+                      >
+                        Message
+                      </button>
+                    </>
+                  )}
+                </span>
               </Row>
               <Row>
                 <span

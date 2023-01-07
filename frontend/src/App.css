@@ -520,9 +520,36 @@ ul {
 #profile-information-follow {
     font-size: 18px;
     text-align: center;
-    width: 100%;
+    width: 45%;
     padding: 10px;
+    margin-left: 10px;
+    margin-right: auto;
+    float: left;
+}
+
+#profile-information-followed {
+    color:rgba(45, 50, 125, 1) !important;
+    font-size: 18px;
+    text-align: center;
+    width: 45%;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: auto;
+    float: left;
+}
+
+#profile-information-followSpan{
+    min-width: 100%;
+}
+
+#profile-information-message {
+    font-size: 18px;
+    text-align: center;
+    width: 45%;
+    padding: 10px;
+    margin-left: auto;
     margin-right: 10px;
+    float: right;
 }
 
 #profile-information-username {
