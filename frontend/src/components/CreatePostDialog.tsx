@@ -20,7 +20,8 @@ export default function SimpleDialog(props: CreatePostDialogProps) {
   return (
     <Dialog open={props.open}>
       <div className="forum-dialog">
-        <form method="post" action="createpost.php">
+        <form method="post" action="../../../backend/ajax.php">
+          <input name="post-create" hidden></input>
           <Container>
             <Row>
               <h1>Create new Post</h1>
