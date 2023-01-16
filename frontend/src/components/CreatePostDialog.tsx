@@ -11,8 +11,6 @@ export interface CreatePostDialogProps {
 }
 
 export default function SimpleDialog(props: CreatePostDialogProps) {
-  function handleListItemClick(value: string) {}
-
   function handleSubmit() {
     props.create();
   }
@@ -20,7 +18,7 @@ export default function SimpleDialog(props: CreatePostDialogProps) {
   return (
     <Dialog open={props.open}>
       <div className="forum-dialog">
-        <form method="post" action="../../../backend/ajax.php">
+        <form method="post" action="http://localhost:8000/ajax.php">
           <input name="post-create" hidden></input>
           <Container>
             <Row>
