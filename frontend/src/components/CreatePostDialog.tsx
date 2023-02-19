@@ -2,23 +2,33 @@ import * as React from "react";
 
 import { Col, Container, Row } from "react-grid-system";
 
+import $ from "jquery";
 import Dialog from "@mui/material/Dialog";
 
+jQuery(function () {
+  console.log(222);
+});
 export interface CreatePostDialogProps {
   open: boolean;
   handleDialog: React.MouseEventHandler<HTMLButtonElement>;
   create: () => void;
 }
 
-export default function SimpleDialog(props: CreatePostDialogProps) {
+export default function CreatePostDialog(props: CreatePostDialogProps) {
   function handleSubmit() {
     props.create();
+
+    // JQuery ajax request
+    $.post("localhost:8000/ajax.php", function (title) {
+      document.getElementById("");
+      alert(title);
+    });
   }
 
   return (
     <Dialog open={props.open}>
       <div className="forum-dialog">
-        <form method="post" action="http://localhost:8000/ajax.php">
+        <form method="post">
           <input name="post-create" hidden></input>
           <Container>
             <Row>
@@ -33,10 +43,6 @@ export default function SimpleDialog(props: CreatePostDialogProps) {
               ></input>
             </Row>
             <Row>
-              {/*
-              TODO: Discuss if Text should an attachment like media/challange or a static
-              TODO: Discuss Characterlimit (250 / 2000 / ...) ?
-              */}
               <input
                 className="textfield createPost-input"
                 name="content"

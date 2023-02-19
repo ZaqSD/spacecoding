@@ -8,7 +8,7 @@ export interface MessageDialogProps {
   isConfirmed: (isConfirmed: boolean) => void;
 }
 
-export default function SimpleDialog(props: MessageDialogProps) {
+export default function DeleteAccountDialog(props: MessageDialogProps) {
   return (
     <Dialog open={props.open}>
       <div className="message-dialog margin-10">

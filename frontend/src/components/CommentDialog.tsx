@@ -17,7 +17,7 @@ export interface CommentProps {
   handleDialog: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function SimpleDialog(props: CommentProps) {
+export default function CommentDialog(props: CommentProps) {
   const [createCommentOpen, setCreateCommentOpen] = React.useState(false);
   const [commentList, setCommentList] = React.useState([
     {
@@ -98,7 +98,7 @@ export default function SimpleDialog(props: CommentProps) {
             />
           </Row>
           {comments.map(({ owner, createdOn, content }) => (
-            <Row>
+            <Row key={content}>
               <Comment owner={owner} createdOn={createdOn} content={content} />
             </Row>
           ))}
