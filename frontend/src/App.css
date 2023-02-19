@@ -344,14 +344,15 @@ ul {
 }
 
 #forum-btn-createPost:hover {
-    transition: background-colr 200ms ease-out;
+    transition: background-color 200ms ease-out;
     transition: filter 200ms ease-out;
     background-color: var(--color-primary-green-hover);
     filter: drop-shadow(0px 5px 5px #BDBDBD);
 }
 
 #forum-comment{
-    border-top: 2px solid #E5E5E5;
+    transition: background-color 55ms ease-out;
+    /*border-top: 2px solid #E5E5E5;*/
     border-left: 8px solid white;
     padding: 10px;
     padding-left: 20px;
@@ -361,7 +362,9 @@ ul {
 }
 
 #forum-comment:hover{
+    transition: background-color 55ms ease-out;
     border-left: 8px solid #E5E5E5;
+    background-color: #F6F6F6;
 }
 
 #forum-comment-commenttitle{
