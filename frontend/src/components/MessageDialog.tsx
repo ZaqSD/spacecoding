@@ -13,7 +13,7 @@ export interface MessageDialogProps {
   handleDialog: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function SimpleDialog(props: MessageDialogProps) {
+export default function MessageDialog(props: MessageDialogProps) {
   return (
     <Dialog open={props.open}>
       <div className="message-dialog">

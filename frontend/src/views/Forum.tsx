@@ -80,7 +80,7 @@ export default function Forum() {
             </Col>
             <Col>
               {posts.map(({ title, content, isLiked, likeNr, commentNr }) => (
-                <Row>
+                <Row key={title}>
                   <ForumPost
                     title={title}
                     content={content}
