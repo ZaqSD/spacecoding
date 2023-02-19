@@ -9,13 +9,7 @@ import NavBar from "../components/NavBar";
 
 export default function Forum() {
   const [createPostOpen, setCreatePostOpen] = React.useState(false);
-
-  const handleCreatePost = () => {
-    setCreatePostOpen(!createPostOpen);
-  };
-
-  //TODO Field Uploaddate & time, Uploaded by
-  const posts = [
+  const [posts, setPosts] = React.useState([
     {
       title: "My newest Post",
       content: "This is the newest post in a line of many posts.",
@@ -37,7 +31,24 @@ export default function Forum() {
       likeNr: 8,
       commentNr: 0,
     },
-  ];
+  ]);
+
+  function handleCreatePost() {
+    setCreatePostOpen(!createPostOpen);
+  }
+
+  function uploadPost() {
+    setPosts((current) => [
+      ...current,
+      {
+        title: "New Post",
+        content: "I just created a new post",
+        isLiked: false,
+        likeNr: 0,
+        commentNr: 0,
+      },
+    ]);
+  }
 
   return (
     <>
@@ -51,7 +62,8 @@ export default function Forum() {
               </Col>
               <Col lg={2}>
                 <button
-                  className="button buttonUpload"
+                  className="button"
+                  id="forum-btn-createPost"
                   onClick={handleCreatePost}
                 >
                   Create Post
@@ -59,6 +71,7 @@ export default function Forum() {
                 <CreatePostDialog
                   open={createPostOpen}
                   handleDialog={handleCreatePost}
+                  create={uploadPost}
                 />
               </Col>
             </Row>

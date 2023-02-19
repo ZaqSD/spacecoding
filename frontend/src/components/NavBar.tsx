@@ -20,6 +20,9 @@ export default function NavBar(props: NavBarProps) {
         <a className="navbar-item" href="/profile">
           Profile
         </a>
+        <a className="navbar-item" href="/login">
+          Logout
+        </a>
       </div>
     </div>
   );

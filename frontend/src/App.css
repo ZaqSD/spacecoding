@@ -1,26 +1,123 @@
+:root {
+    --color-primary-blue: rgba(45, 50, 125, 1.0);
+    --color-primary-blue-shadow: rgba(45, 50, 125, 0.5);
+    --color-primary-blue-hover: #42478a;
+    --color-primary-green:#00a251;
+    --color-primary-green-hover: #00b45a;
+    --color-shadow: rgba(230, 248, 239, 0.4);
+  }
+
 ul {
     list-style-type: none;
     margin: 10px;
     padding: 0;
   }
 
-.buttonUpload {
-    background-color: rgb(0, 180, 90);
+.button {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
     font-size: 18px;
     font-weight: 500;
-    color: white;
     border-radius: 5px;
     border-width: 0px;
+    background-color: #E5E5E5;
+    color: black !important;
     padding-top: 8px;
     padding-right: 12px;
     padding-bottom: 8px;
     padding-left: 12px;
-    margin-top: 20px;
+    text-decoration: none;
 }
 
-.buttonUpload:hover {
-    transition: background-color 125ms ease-in;
-    background-color: rgb(0, 150, 70);
+.button:hover {
+    transition: background-color 200ms ease-out;
+    background-color: #D2D2D2;
+}
+
+.button-red {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: #EB0000;
+    font-weight: 600;
+    color: white !important;
+}
+
+.button-red:hover {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: #C60018;
+    filter: drop-shadow(0px 8px 8px #EB0000);
+}
+
+.button-primary {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: var(--color-primary-blue);
+    font-weight: 600;
+    color: white !important;
+}
+
+.button-primary:hover {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: var(--color-primary-blue-hover);
+    filter: drop-shadow(0px 8px 8px var(--color-primary-blue-shadow));
+}
+
+.forum-dialog{
+    padding: 25px;
+}
+
+.forum-dialog h1{
+    margin-top: 0px;
+}
+
+.forum-dialog h3{
+    margin-top: 0px;
+}
+
+.forum-dialog .createPost-input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-width: 500px;
+}
+
+.forum-dialog button {
+    margin-top: 10px;
+    height: 40px;
+}
+
+.forum-dialog #btn-post{
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    color: white;
+    background-color: var(--color-primary-blue);
+    font-weight: 600;
+    min-width: 20%;
+    margin-right:20px;
+}
+
+.forum-dialog #btn-post:hover {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: var(--color-primary-blue-hover);
+    filter: drop-shadow(0px 8px 8px var(--color-primary-blue-shadow));
+}
+
+.forum-dialog #btn-cancel{
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: #E5E5E5;
+    color: black;
+    font-weight: 500;
+    min-width: 20%;
+    margin-right:25px;
+}
+
+.forum-dialog #btn-cancel:hover {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    filter: drop-shadow(0px 5px 5px #D2D2D2);
 }
 
 .forumPost {
@@ -72,6 +169,41 @@ ul {
     font-weight: 700;
     font-size: 20px;
     margin: 0px;
+}
+
+.height-10 {
+    height: 10px;
+}
+
+.margin-10 {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.message-button{
+    font-size: 18px;
+    height: 40px;
+    min-width: 150px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.message-content{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.message-dialog {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    min-width: 400px;
+}
+
+.message-title{
+    font-size: 36px;
+    margin-bottom: 0px;
 }
 
 .messageWindow {
@@ -129,8 +261,172 @@ ul {
 }
 
 .profile-edit-input {
-    height: 30px;
-    min-width: 500px;
+    width:100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.profile-edit-input:hover {
+    transition: border-color 200ms ease-out;
+    border-color: #B7B7B7;
+}
+
+.profile-information {
+    color: #444444;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.profile-information-column{
+    margin: 20px;
+}
+
+.profile-information .profile-information-counter {
+    color: black;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.register-inputarea{
+    width: 40%;
+    margin-left: auto;
+    margin-top: 100px;
+    margin-right: auto;
+}
+
+.textfield {
+    transition: border-color 200ms ease-out;
+    font-size: 16px;
+    height: 40px;
+    border-radius: 5px;
+    border-color: #E5E5E5;
+    border-width: 2px;
+    background-color: #F6F6F6;
+    border-style: solid;
+    padding-left: 10px;
+    width:100%;
+}
+
+.textfield:hover {
+    transition: border-color 200ms ease-out;
+    border-color: #B7B7B7;
+}
+
+#deleteAcc-cancel{
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+}
+
+#deleteAcc-confirm{
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    float: right;
+}
+
+#deleteAcc-delete {
+    font-weight: 900;
+    color: #EB0000;
+}
+
+
+#forum-btn-createPost {
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: var(--color-primary-green);
+    color: white !important;
+    height: 40px;
+    margin-top: 20px;
+}
+
+#forum-btn-createPost:hover {
+    transition: background-colr 200ms ease-out;
+    transition: filter 200ms ease-out;
+    background-color: var(--color-primary-green-hover);
+    filter: drop-shadow(0px 5px 5px #BDBDBD);
+}
+
+#forum-comment{
+    border-top: 2px solid #E5E5E5;
+    border-left: 8px solid white;
+    padding: 10px;
+    padding-left: 20px;
+    width: 100%;
+    margin: 10px;
+    margin-left: 0px;
+}
+
+#forum-comment:hover{
+    border-left: 8px solid #E5E5E5;
+}
+
+#forum-comment-commenttitle{
+    margin-top: 30px;
+}
+
+#forum-comment-createBtn{
+    width: 100%;
+}
+
+#forum-comment-owner{
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 4px;
+}
+
+#forum-comment-date{
+    color: #8D8D8D;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+#forum-comment-content{
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+#login-loginBtn{
+    color:white;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 40px;
+    width: 100%;
+}
+
+#login-field {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    min-width:400px;
+    max-width: 400px;
+    margin-top: 15%;
+    margin-right: 35%;
+    margin-bottom: 15%;;
+    margin-left: 35%;
+    padding: 25px;
+    filter: drop-shadow(0px 10px 10px #CDCDCD);
+}
+
+#login-field h1 {
+    text-align: center;
+    font-size: 40px;;
+    margin-left:40%;
+    margin-right: 40%;
+}
+
+#login-field input {
+    font-size:16px;
+    height: 40px;
+    width: 100%;
     border-radius: 5px;
     border-color: #E5E5E5;
     border-width: 2px;
@@ -140,7 +436,117 @@ ul {
     margin: 10px;
 }
 
-.profile-edit-input:hover {
-    transition: border-color 200ms ease-out;
+#login-field input:hover {
+    transition: border-color 125ms ease-out;
     border-color: #B7B7B7;
+}
+
+#login-field #btn-register {
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 40px;
+    width: 100%;
+}
+
+#login-field #btn-register:hover {
+    background-color: #E5E5E5;
+}
+
+#profile-activity-selector {
+    width: 30%;
+    margin-top: 20px;
+}
+
+#profile-activity-selector-posts {
+    width: 50%;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#profile-activity-selector-challanges {
+    width: 50%;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+#profile-delete-isDeletedBtn{
+    text-align: center;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#profile-edit-cancel{
+    width: 47%;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: right;
+}
+
+#profile-edit-delete{
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#profile-edit-save{
+    width: 47%;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#profile-information-edit {
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+#profile-information-name {
+    color: black;
+    font-size: 32px;
+    font-weight: 700;
+    width: 100%;
+}
+
+#profile-information-follow {
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+#profile-information-username {
+    color: #8D8D8D;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+#register-back {
+    font-size: 20px;
+    width: 45%;
+    height: 45px;
+    float:left;
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-right: auto;
+}
+
+#register-next {
+    font-size: 20px;
+    width: 45%;
+    height: 45px;
+    float: right;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-right: 0px;
 }
