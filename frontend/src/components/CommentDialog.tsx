@@ -70,13 +70,18 @@ export default function CommentDialog(props: CommentProps) {
           </Row>
           <Row>
             <button
-              id="postLikeBtn"
-              className={"forumPostAction" + (props.isLiked ? " liked" : " ")}
+              className={
+                "forum-post-action forum-post-like" +
+                (props.isLiked ? " liked" : " ")
+              }
               onClick={props.handleLike}
             >
-              Like ({props.likeNr})
+              <Row>
+                Like{props.isLiked ? "d" : ""}
+                <div className="forum-post-likeNr">{props.likeNr}</div>
+              </Row>
             </button>
-            <button className="forumPostAction">Share</button>
+            <button className="forum-post-action">Share</button>
           </Row>
           <Row>
             <h3 id="forum-comment-commenttitle">
