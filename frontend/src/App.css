@@ -120,12 +120,22 @@ ul {
     filter: drop-shadow(0px 5px 5px #D2D2D2);
 }
 
-.forumPost {
+.forum-post {
+    transition: filter 200ms ease-out;
+    filter: drop-shadow(0px 5px 5px #D2D2D2);
+    background-color: white;
+    border-radius: 5px;
     padding: 10px;
     margin: 10px;
+    width: 100%;
 }
 
-.forumPostAction {
+.forum-post:hover { 
+    transition: filter 200ms ease-out;
+    filter: drop-shadow(0px 5px 5px #A8A8A8);
+}
+
+.forum-post-action {
     transition: background-color 300ms ease-out;
     border-radius: 5px;
     border-width: 2px;
@@ -139,36 +149,62 @@ ul {
     padding-right: 10px;
     padding-bottom: 6px;
     padding-left: 10px;
+    margin-top: 12px;
     text-decoration: none;
 }
 
-.forumPostAction:hover{
+.forum-post-action:hover{
     transition: background-color 300ms ease-out;
     background-color: #E5E5E5;
-    border-radius: 5px;
 }
 
-.forumPostAction#postLikeBtn:hover{
-    transition: background-color 300ms ease-out;
-    background-color: #DDDDFF;
-    border-radius: 5px;
+.forum-post-action#postLikeBtn {
+    margin-left: 20px;
+
 }
 
-.forumPostAction.liked{
-    color: blue;
-    border-color: blue;
-    border-width: 2px;
-    border-radius: 5px;
+.forum-post-action.forum-post-like{
+    transition: background-color 200ms ease-out;
+    padding-left: 24px;
 }
 
-.forumPostContent {
+.forum-post-action.forum-post-like:hover{
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    border: 0px;
+    color: white;
+    background-color: var(--color-primary-blue-hover);
+    filter: drop-shadow(0px 8px 8px var(--color-primary-blue-shadow));
+}
+
+.forum-post-action.liked{
+    transition: background-color 200ms ease-out;
+    transition: filter 200ms ease-out;
+    border: 0px;
+    color: white;
+    background-color: var(--color-primary-blue-hover);
+}
+
+.forum-post-action.left{
+    margin-left: 24px;
+}
+
+.forum-post-likeNr{
+    background-color: rgba( 0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 0px 5px 0px 5px;
+    margin: 0px 10px 0px 10px;
+}
+
+.forum-post-content {
     font-size: 16px;
+    margin: 16px 0px 0px 24px;
 }
 
-.forumPostTitle {
+.forum-post-title {
     font-weight: 700;
     font-size: 20px;
-    margin: 0px;
+    margin: 8px 0px 0px 24px;
 }
 
 .height-10 {
@@ -335,19 +371,10 @@ ul {
 
 
 #forum-btn-createPost {
-    transition: background-color 200ms ease-out;
-    transition: filter 200ms ease-out;
-    background-color: var(--color-primary-green);
-    color: white !important;
+    font-size: 20px;
     height: 40px;
     margin-top: 20px;
-}
-
-#forum-btn-createPost:hover {
-    transition: background-color 200ms ease-out;
-    transition: filter 200ms ease-out;
-    background-color: var(--color-primary-green-hover);
-    filter: drop-shadow(0px 5px 5px #BDBDBD);
+    padding: 8px 16px 8px 16px;
 }
 
 #forum-comment{
