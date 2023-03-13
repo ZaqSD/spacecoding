@@ -32,22 +32,27 @@ export default function ForumPost(props: ForumPostProps) {
   }
 
   return (
-    <div className="forumPost">
+    <div className="forum-post">
       <Row>
-        <p className="forumPostTitle">{props.title}</p>
+        <p className="forum-post-title">{props.title}</p>
       </Row>
       <Row>
-        <p className="forumPostContent">{props.content}</p>
+        <p className="forum-post-content">{props.content}</p>
       </Row>
       <Row>
         <button
           id="postLikeBtn"
-          className={"forumPostAction" + (liked ? " liked" : " ")}
+          className={
+            "forum-post-action forum-post-like" + (liked ? " liked" : " ")
+          }
           onClick={handleLike}
         >
-          Like ({likeNr})
+          <Row>
+            Like{liked ? "d" : ""}
+            <div className="forum-post-likeNr">{likeNr}</div>
+          </Row>
         </button>
-        <button className="forumPostAction" onClick={handleCommentDialog}>
+        <button className="forum-post-action" onClick={handleCommentDialog}>
           Comments ({props.commentNr})
         </button>
         <CommentDialog
@@ -60,7 +65,7 @@ export default function ForumPost(props: ForumPostProps) {
           handleLike={handleLike}
           commentNr={props.commentNr}
         />
-        <button className="forumPostAction">Share</button>
+        <button className="forum-post-action">Share</button>
       </Row>
     </div>
   );

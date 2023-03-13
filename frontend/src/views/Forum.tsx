@@ -62,7 +62,7 @@ export default function Forum() {
               </Col>
               <Col lg={2}>
                 <button
-                  className="button"
+                  className="button button-primary"
                   id="forum-btn-createPost"
                   onClick={handleCreatePost}
                 >
