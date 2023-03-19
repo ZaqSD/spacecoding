@@ -28,7 +28,9 @@ export default function CreatePostDialog(props: CreatePostDialogProps) {
   return (
     <Dialog open={props.open}>
       <div className="forum-dialog">
-        <form method="post">
+        <form>
+          <input name="Action" value="Post" hidden></input>
+          <input name="Command" value="Create" hidden></input>
           <input name="post-create" hidden></input>
           <Container>
             <Row>
