@@ -1,5 +1,6 @@
 <?php
-
+header( 'Access-Control-Allow-Origin: localhost:3000
+         Access-Control-Allow-Headers: *');
 if ($_SERVER['HTTP_HOST'] == 'localhost') {
   define('LOCAL', true);
 } else {
@@ -16,10 +17,11 @@ if (!LOCAL) {
   $servername = 'localhost';
   $username = 'root';
   $password = '';
+  $database = 'spacecoding';
 }
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $database);
 
 // Check connection
 if ($conn->connect_error) {
