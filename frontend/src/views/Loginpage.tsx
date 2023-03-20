@@ -18,7 +18,11 @@ export default function Login() {
                 <h1>Login</h1>
               </Row>
               <Row>
-                <input placeholder="Username" type="email"></input>
+                <input
+                  placeholder="Username"
+                  id="loginUsername"
+                  type="email"
+                ></input>
               </Row>
               <Row>
                 <input placeholder="Password" type="password"></input>
