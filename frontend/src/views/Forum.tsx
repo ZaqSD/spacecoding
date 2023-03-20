@@ -11,6 +11,7 @@ export default function Forum() {
   const [createPostOpen, setCreatePostOpen] = React.useState(false);
   const [posts, setPosts] = React.useState([
     {
+      id: 1,
       title: "My newest Post",
       content: "This is the newest post in a line of many posts.",
       isLiked: true,
@@ -18,6 +19,7 @@ export default function Forum() {
       commentNr: 2,
     },
     {
+      id: 2,
       title: "Hello World",
       content: "This is another post.",
       isLiked: true,
@@ -25,6 +27,7 @@ export default function Forum() {
       commentNr: 0,
     },
     {
+      id: 3,
       title: "TestPost",
       content: "This is a post to test new functionalities.",
       isLiked: false,
@@ -41,6 +44,7 @@ export default function Forum() {
     setPosts((current) => [
       ...current,
       {
+        id: 3,
         title: "New Post",
         content: "I just created a new post",
         isLiked: false,
@@ -79,17 +83,20 @@ export default function Forum() {
               <div></div>
             </Col>
             <Col>
-              {posts.map(({ title, content, isLiked, likeNr, commentNr }) => (
-                <Row key={title}>
-                  <ForumPost
-                    title={title}
-                    content={content}
-                    isLiked={isLiked}
-                    likeNr={likeNr}
-                    commentNr={commentNr}
-                  />
-                </Row>
-              ))}
+              {posts.map(
+                ({ id, title, content, isLiked, likeNr, commentNr }) => (
+                  <Row key={title}>
+                    <ForumPost
+                      id={id}
+                      title={title}
+                      content={content}
+                      isLiked={isLiked}
+                      likeNr={likeNr}
+                      commentNr={commentNr}
+                    />
+                  </Row>
+                )
+              )}
             </Col>
           </Col>
           <Col lg={3}>

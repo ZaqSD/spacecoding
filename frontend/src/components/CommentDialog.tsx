@@ -7,6 +7,7 @@ import CreateCommentDialog from "./CreateCommentDialog";
 import Dialog from "@mui/material/Dialog";
 
 export interface CommentProps {
+  postId: number;
   open: boolean;
   title: string;
   content?: string;
@@ -22,14 +23,22 @@ export default function CommentDialog(props: CommentProps) {
   const [commentList, setCommentList] = React.useState([
     {
       owner: "Andreas Siaplaouras",
+      postId: 1,
       createdOn: "4d ago",
       content: "This is a quite well-formed post I really enjoyed reading it.",
     },
     {
       owner: "Luan Caduff",
+      postId: 1,
       createdOn: "2d ago",
       content:
         "AcKtUaLlY, it is not your first post, it's your zero-th, CHECK YOUR FACTS.",
+    },
+    {
+      owner: "Chris Traeger",
+      postId: 2,
+      createdOn: "5d ago",
+      content: "AMAZING POST, LITERALLY the best post I've ever seen",
     },
   ]);
 
@@ -44,10 +53,11 @@ export default function CommentDialog(props: CommentProps) {
   }
 
   function uploadComment(content: string) {
-    setCommentList((current) => [
-      ...current,
+    setCommentList((commentList) => [
+      ...commentList,
       {
         owner: "Testuser",
+        postId: props.postId,
         createdOn: "18:44",
         content: content,
       },
@@ -102,11 +112,19 @@ export default function CommentDialog(props: CommentProps) {
               post={uploadComment}
             />
           </Row>
-          {comments.map(({ owner, createdOn, content }) => (
-            <Row key={content}>
-              <Comment owner={owner} createdOn={createdOn} content={content} />
-            </Row>
-          ))}
+          {comments.map(({ owner, postId, createdOn, content }) =>
+            postId === props.postId ? (
+              <Row key={content}>
+                <Comment
+                  owner={owner}
+                  createdOn={createdOn}
+                  content={content}
+                />
+              </Row>
+            ) : (
+              ""
+            )
+          )}
           <Row>
             <button
               className="button"
