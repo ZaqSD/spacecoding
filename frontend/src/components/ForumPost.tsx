@@ -5,6 +5,7 @@ import { Col, Container, Row } from "react-grid-system";
 import CommentDialog from "./CommentDialog";
 
 interface ForumPostProps {
+  id: number;
   title: string;
   content?: string;
   isLiked: boolean;
@@ -56,6 +57,7 @@ export default function ForumPost(props: ForumPostProps) {
           Comments ({props.commentNr})
         </button>
         <CommentDialog
+          postId={props.id}
           open={commentOpen}
           handleDialog={handleCommentDialog}
           title={props.title}

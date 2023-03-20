@@ -23,7 +23,7 @@ export default function SimpleDialog(props: CreateCommentDialogProps) {
   return (
     <Dialog open={props.open}>
       <div className="forum-dialog">
-        <form method="post" action="createpost.php">
+        <form>
           <Container>
             <Row>
               <h1>Create new Comment</h1>
