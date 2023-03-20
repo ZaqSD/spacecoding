@@ -132,7 +132,7 @@ ul {
 
 .forum-post:hover { 
     transition: filter 200ms ease-out;
-    filter: drop-shadow(0px 5px 5px #A8A8A8);
+    filter: drop-shadow(0px 8px 8px #A8A8A8);
 }
 
 .forum-post-action {
@@ -165,6 +165,7 @@ ul {
 
 .forum-post-action.forum-post-like{
     transition: background-color 200ms ease-out;
+    border: 0px;
     padding-left: 24px;
 }
 
@@ -183,10 +184,6 @@ ul {
     border: 0px;
     color: white;
     background-color: var(--color-primary-blue-hover);
-}
-
-.forum-post-action.left{
-    margin-left: 24px;
 }
 
 .forum-post-likeNr{
